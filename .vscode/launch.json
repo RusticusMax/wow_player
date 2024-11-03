@@ -1,18 +1,12 @@
 {
     "configurations": [
         {
-            "type": "debugpy",
+            "name": "Python: Current File",
+            "type": "python",
             "request": "launch",
-            "name": "Launch pvp_player_histo",
-            "program": "${workspaceFolder}/${input:programName}",
-            "console": "integratedTerminal"
-        }
-    ],
-    "inputs": [
-        {
-            "type": "promptString",
-            "id": "programName",
-            "description": "Enter the name of the Python file to launch"
+            "program": "${file}",
+            "console": "integratedTerminal",
+            "justMyCode": true
         }
     ]
 }

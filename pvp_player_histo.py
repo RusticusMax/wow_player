@@ -2,19 +2,22 @@ from lxml import html
 import requests
 import sys  # contains stderr object for debug output
 
+# TODO: Create excel file directly with openpyxl module/with graph
+
 # Changed remote repo name: "git remote set-url origin 'https://RusticusMax@bitbucket.org/RusticusMax/wow_player_histo.git'"
 # Variables 
 # Debug flag.  Set to non zero for debug
 DEBUG_OUT=1          
 # Number of players to process
-PLAYER_MAX=500   
-# number of histogram bars
-HISTO_BAR_COUNT=25
-# Only include data for the top n classes in histogram to reduce noise in graph
-HISTO_TOP_X=5
-
+PLAYER_MAX=901
 # Number of players to count for each histogram bucket dictionary
-HISTO_WIDTH=int(PLAYER_MAX/HISTO_BAR_COUNT)
+HISTO_WIDTH=20 #int(PLAYER_MAX/HISTO_BAR_COUNT)   
+# number of histogram bars - and HISTO_WIDTH-1 to PLAYER_MAX to deal with possible truncation by int()``
+HISTO_BAR_COUNT=int((PLAYER_MAX+HISTO_WIDTH-1)/HISTO_WIDTH)
+# Only include data for the top n classes in histogram to reduce noise in graph
+HISTO_TOP_X=10
+
+
 
 
 # Dictionary for counting classes
@@ -30,7 +33,7 @@ class_list = { " Windwalker Monk":0,        " Holy Paladin":0,          " Frost 
                " Marksmanship Hunter":0,    " Holy Priest":0,           " Outlaw Rogue":0,
                " Beast Mastery Hunter":0,   " Protection Warrior":0,    " Blood Death Knight":0,
                " Vengeance Demon Hunter":0, " Fury Warrior":0,          " Brewmaster Monk":0,
-               " Preservation Evoker:0,     " "Devastation Evoker":0,   " Augmentation Evoker":0, }
+               " Preservation Evoker":0,    " Devastation Evoker":0,   " Augmentation Evoker":0, }
 
 # todo:    create cleaa list objects to better handle paralle arrays 
  
@@ -93,10 +96,10 @@ for class_item in sorted(class_list.keys(), key=lambda class_str: class_list[cla
         histo_top_classes.append(class_item) 
 
 # header (may need to sort to ensure each dictionary is ordered the same,  atm each run has differnt order, but same for each dictionary in any run)
-print("Rank", '\t', end='')
+print("Rank,", end='')
 # for histo_item in histo_buckets[0]:
 for histo_item in histo_top_classes:
-    print(histo_item, '\t', end='')
+    print(histo_item, ',', end='')
 print()
 
 # Print actual histogram data
