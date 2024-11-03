@@ -29,7 +29,8 @@ class_list = { " Windwalker Monk":0,        " Holy Paladin":0,          " Frost 
                " Guardian Druid":0,         " Havoc Demon Hunter":0,    " Fire Mage":0,
                " Marksmanship Hunter":0,    " Holy Priest":0,           " Outlaw Rogue":0,
                " Beast Mastery Hunter":0,   " Protection Warrior":0,    " Blood Death Knight":0,
-               " Vengeance Demon Hunter":0, " Fury Warrior":0,          " Brewmaster Monk":0}
+               " Vengeance Demon Hunter":0, " Fury Warrior":0,          " Brewmaster Monk":0,
+               " Preservation Evoker:0,     " "Devastation Evoker":0,   " Augmentation Evoker":0, }
 
 # todo:    create cleaa list objects to better handle paralle arrays 
  
