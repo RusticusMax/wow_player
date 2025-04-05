@@ -11,7 +11,7 @@ DEBUG_OUT=1
 # Number of players to process
 PLAYER_MAX=901
 # Number of players to count for each histogram bucket dictionary
-HISTO_WIDTH=20 #int(PLAYER_MAX/HISTO_BAR_COUNT)   
+HISTO_WIDTH=100 #int(PLAYER_MAX/HISTO_BAR_COUNT)   
 # number of histogram bars - and HISTO_WIDTH-1 to PLAYER_MAX to deal with possible truncation by int()``
 HISTO_BAR_COUNT=int((PLAYER_MAX+HISTO_WIDTH-1)/HISTO_WIDTH)
 # Only include data for the top n classes in histogram to reduce noise in graph
